@@ -1,0 +1,15 @@
+<div>
+	<h2>
+		Listado de periféricos
+	</h2>
+
+	<div>
+		<div class="table-responsive">
+  			<table class="table">
+    			<% _.each(per, function(periferico){ %>
+   				<tr><td><%= periferico.get("nombre") %></td></tr>
+  				<% }); %>
+  			</table>
+		</div> 
+	</div>
+</div>
