@@ -1,0 +1,2 @@
+# DomoCasa
+Aplicación domótica.
