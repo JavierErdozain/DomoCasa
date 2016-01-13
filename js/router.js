@@ -23,14 +23,7 @@ define([
   var initialize = function(){
 
     var app_router = new AppRouter;
-    
-    app_router.on('route:perifericos', function(){  
         
-        //var perifericosView = new PerifericosView();
-        //perifericosView.render();
-
-    });
-
     app_router.on('route:defaultAction', function (actions) { 
       var casaiew = new CasaView();
       casaiew.render();
