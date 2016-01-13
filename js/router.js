@@ -4,15 +4,17 @@ define([
   'underscore',
   'backbone',
   'views/casa/casaView',
-  'views/perifericos/perifericosView',  
-  'views/footer/FooterView'
-], function($, _, Backbone, CasaView, PerifericosView, FooterView) {
+  'views/casa/listadoTipoView',
+  'views/casa/casaDispositivoView', 
+  'views/footer/FooterView',
+], function($, _, Backbone, CasaView, miCasaListadoView, detalleDispositivoView, FooterView) {
   
   var AppRouter = Backbone.Router.extend({
     routes: {
       // Define some URL routes
-      'perifericos': 'perifericos',      
-      
+      'miCasa': 'defaultAction',      
+      'miCasa_listadoTipo':'miCasalistadoTipos',
+      'detalleDispositivo':'miCasaDispositivo',
       // Default
       '*actions': 'defaultAction'
     }
@@ -24,14 +26,24 @@ define([
     
     app_router.on('route:perifericos', function(){  
         
-        var perifericosView = new PerifericosView();
-        perifericosView.render();
+        //var perifericosView = new PerifericosView();
+        //perifericosView.render();
 
     });
 
-    app_router.on('route:defaultAction', function (actions) {            
+    app_router.on('route:defaultAction', function (actions) { 
       var casaiew = new CasaView();
       casaiew.render();
+    });
+    app_router.on('route:miCasalistadoTipos', function (actions) {            
+      
+      var casalistadoTipo = new miCasaListadoView();
+      casalistadoTipo.render();
+    });
+    app_router.on('route:miCasaDispositivo', function (actions) {            
+      
+      var casaDispositivo = new detalleDispositivoView();
+      casaDispositivo.render();
     });
 
     // Unlike the above, we don't call render on this view as it will handle

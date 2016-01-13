@@ -3,15 +3,15 @@ define([
   'underscore',
   'backbone',
   'views/sidebar/SidebarView',
-  'text!templates/casa/casaTemplate.html'
-], function($, _, Backbone, SidebarView, homeTemplate){
+  'text!templates/casa/casaDispositivoTemplate.html'
+], function($, _, Backbone, SidebarView, dispositivoTemplate){
 
-  var HomeView = Backbone.View.extend({
+  var DispositivoView = Backbone.View.extend({
     el: $("#page-wrapper"),
 
     render: function(){
             
-      this.$el.html(homeTemplate);
+      this.$el.html(dispositivoTemplate);
 
       var sidebarView = new SidebarView();
       sidebarView.render();
@@ -20,6 +20,6 @@ define([
 
   });
 
-  return HomeView;
+  return DispositivoView;
   
 });
