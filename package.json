@@ -1,0 +1,7 @@
+{  
+  "author": "Javier Erdozain",
+  "dependencies": { 
+    "express": "^4.4.1",   
+    "cylon-intel-iot": "*"
+  }
+}
