@@ -2,7 +2,7 @@ var Cylon = require('cylon');
 
 module.exports = function(app) {
 
-  Cylon.robot({
+ /* Cylon.robot({
     connection: { name: 'raspi', adaptor: 'raspi' },
     devices: [
       { name: 'red', driver: 'led', pin: 15 },
@@ -26,5 +26,5 @@ module.exports = function(app) {
         res.send(200);
       });
     }
-  }).start();
+  }).start();*/
 };

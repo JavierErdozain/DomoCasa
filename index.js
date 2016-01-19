@@ -12,3 +12,15 @@ app.get('/',function (req, res) {
 app.listen(80, function() {
   console.log('Raspi Express server listening...');
 });
+
+
+var piOnOf = require('onoff').Gpio;
+app.get('/luces/:led/:position',function(req, res) {
+    var led = req.params.led;
+    var pos = req.params.position;
+
+    console.log(led);
+    console.log(pos);
+    var led = new Gpio(led, pos==='on' ? 1:0);
+    res.sendStatus(200);
+});

@@ -12,14 +12,18 @@ define([
 
       this.add([	      
 	      {
-	      	Codigo: 2,
+	      	Codigo: 1,
 	        Nombre : 'Luces' ,       
 	        Imagen:'glyphicon glyphicon-lamp',
 	        colorFondo : 'yellow',
-	        dispositivos: []
+	        dispositivos: [{
+	        		Nombre: 'Prueba led rojo',
+	        		pinSubida:17,
+	        		pinBajada:18
+		        }]
 	      },
 	      {
-	      	Codigo: 1,
+	      	Codigo: 2,
 	        Nombre : 'Persiana', 
 	        Imagen : 'glyphicon glyphicon-align-justify',
 	        colorFondo : 'red',

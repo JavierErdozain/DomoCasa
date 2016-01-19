@@ -30,7 +30,8 @@ define([
     });
 
     app_router.on('route:miCasalistadoTipos', function (id) {            
-      
+      alert('0');
+      console.log(id);
       var casalistadoTipo = new miCasaListadoView(id);
       casalistadoTipo.render();
     });
