@@ -9,6 +9,6 @@ app.get('/',function (req, res) {
 
 //require('./Servidor/Controladores/Interruptores/interruptor')(app);
 
-app.listen(3000, function() {
+app.listen(80, function() {
   console.log('Raspi Express server listening...');
 });
