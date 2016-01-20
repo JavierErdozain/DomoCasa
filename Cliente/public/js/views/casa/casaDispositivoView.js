@@ -2,10 +2,9 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'views/sidebar/SidebarView',
   'text!templates/casa/casaDispositivoTemplate.html'
   
-], function($, _, Backbone, SidebarView, dispositivoTemplate){
+], function($, _, Backbone, dispositivoTemplate){
 
   var DispositivoView = Backbone.View.extend({
     el: $("#page-wrapper"),
@@ -15,23 +14,19 @@ define([
        'click #cmdBajarPersiana' : 'InstruccionOff'
      },
 
-    render: function(){
-            
+    render: function(){            
       this.$el.html(dispositivoTemplate);
-
-      //var sidebarView = new SidebarView();
-      //sidebarView.render();
      },
 
     /* Métodos privados */
     InstruccionOn: function(){
-      $.get('/api/red/on', function(data) {
+      $.get('/api/12/on', function(data) {
         console.log(data);
       });
      },
 
     InstruccionOff: function(){
-      $.get('/api/red/off', function(data) {
+      $.get('/api/12/off', function(data) {
         console.log(data);
       });
      }

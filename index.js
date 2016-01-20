@@ -19,10 +19,10 @@ app.get('/luces/:led/:position',function(req, res) {
     var led = req.params.led;
     var pos = req.params.position;
 
-    gpio.open(12, "output", function(err) {
-    	gpio.write(12, pos=="on" ? 1:0);       
+    gpio.open(led, "output", function(err) {
+    	gpio.write(led, ((pos=='on') ? 1:0);       
     });
 
     res.sendStatus(200);
-    
+
 });

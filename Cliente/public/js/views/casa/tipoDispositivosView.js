@@ -30,12 +30,12 @@ define([
     },
 
     InstruccionOn: function(){
-      $.get('/luces/16/on', function(data) {
+      $.get('/luces/12/on', function(data) {
         console.log(data);
       });
      },
      InstruccionOff: function(){
-      $.get('/lices/16/off', function(data) {
+      $.get('/luces/12/off', function(data) {
         console.log(data);
       });
      },
