@@ -15,7 +15,6 @@ app.listen(8000, function() {
 
 
 var gpio = require("pi-gpio");
-
 app.get('/luces/:led/:position',function(req, res) {
     var led = req.params.led;
     var pos = req.params.position;
@@ -26,10 +25,11 @@ app.get('/luces/:led/:position',function(req, res) {
 	    gpio.close(12);                     // Close pin 16
         });
       else
-	gpio.write(12, 0, function(){
-	  gpio.close(12);
-	}); 
+		gpio.write(12, 0, function(){
+	  		gpio.close(12);
+		}); 
     });
+
     res.sendStatus(200);
 });
 
