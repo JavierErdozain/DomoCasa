@@ -9,18 +9,27 @@ app.get('/',function (req, res) {
 
 //require('./Servidor/Controladores/Interruptores/interruptor')(app);
 
-app.listen(80, function() {
+app.listen(8000, function() {
   console.log('Raspi Express server listening...');
 });
 
 
-var piOnOf = require('onoff').Gpio;
+var gpio = require("pi-gpio");
+
 app.get('/luces/:led/:position',function(req, res) {
     var led = req.params.led;
     var pos = req.params.position;
-
-    console.log(led);
-    console.log(pos);
-    var led = new Gpio(led, pos==='on' ? 1:0);
+   
+    gpio.open(12, "output", function(err) {     // Open pin 16 for output
+      if (pos=="on")    
+        gpio.write(12, 1, function() {          // Set pin 16 high (1)
+	    gpio.close(12);                     // Close pin 16
+        });
+      else
+	gpio.write(12, 0, function(){
+	  gpio.close(12);
+	}); 
+    });
     res.sendStatus(200);
 });
+
