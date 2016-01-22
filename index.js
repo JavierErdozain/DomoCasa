@@ -14,15 +14,15 @@ app.listen(8000, function() {
 });
 
 
-var gpio = require("pi-gpio");
+//var gpio = require("pi-gpio");
 app.get('/luces/:led/:position',function(req, res) {
     var led = req.params.led;
     var pos = req.params.position;
 
-    gpio.open(led, "output", function(err) {
+    /*gpio.open(led, "output", function(err) {
     	gpio.write(led, ((pos=='on') ? 1:0));       
     });
-
+*/
     res.sendStatus(200);
 
 });

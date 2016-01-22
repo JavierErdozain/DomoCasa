@@ -6,14 +6,14 @@ define([
   'views/casa/tipoDispositivosView',
   'views/casa/listadoDispositivoView',
   'views/casa/casaDispositivoView', 
-  'views/footer/FooterView',
+  'views/footer/FooterView'
 ], function($, _, Backbone, CasaView, miCasaListadoView, detalleDispositivoView, FooterView) {
   
   var AppRouter = Backbone.Router.extend({
     routes: {
       // Define some URL routes
       'miCasa': 'defaultAction',            
-      'listadoDispositivos/:id':'miCasalistadoTipos',
+      'listadoDispositivos':'miCasalistadoTipos',
       'detalleDispositivo':'miCasaDispositivo',
       // Default
       '*actions': 'defaultAction'
@@ -36,7 +36,7 @@ define([
       casalistadoTipo.render();
     });
     app_router.on('route:miCasaDispositivo', function (actions) {            
-      
+      alert('1');
       var casaDispositivo = new detalleDispositivoView();
       casaDispositivo.render();
     });
