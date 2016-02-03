@@ -3,27 +3,32 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'views/casa/tipoDispositivosView',
-  'views/casa/listadoDispositivoView',
-  'views/casa/casaDispositivoView', 
-  'views/footer/FooterView'
-], function($, _, Backbone, CasaView, miCasaListadoView, detalleDispositivoView, FooterView) {
+  'views/espacios/espaciosView'  
+], function($, _, Backbone,                         
+            EspaciosView
+            ) {
   
   var AppRouter = Backbone.Router.extend({
     routes: {
-      // Define some URL routes
-      'miCasa': 'defaultAction',            
-      'listadoDispositivos':'miCasalistadoTipos',
-      'detalleDispositivo':'miCasaDispositivo',
-      // Default
-      '*actions': 'defaultAction'
+      
+      ''                     : 'espacios',  
+      'miCasa'               : 'defaultAction',            
+      'listadoDispositivos'  : 'miCasalistadoTipos',
+      'detalleDispositivo'   : 'miCasaDispositivo',
+
     }
+
   });
   
   var initialize = function(){
 
     var app_router = new AppRouter;
-        
+       
+    app_router.on('route:espacios', function () { 
+      var espacioview = new EspaciosView();
+      espacioview.render();
+    });
+/*
     app_router.on('route:defaultAction', function () { 
       var casaiew = new CasaView();
       casaiew.render();
@@ -40,12 +45,12 @@ define([
       var casaDispositivo = new detalleDispositivoView();
       casaDispositivo.render();
     });
-
+*/
     // Unlike the above, we don't call render on this view as it will handle
     // the render call internally after it loads data. Further more we load it
     // outside of an on-route function to have it loaded no matter which page is
     // loaded initially.
-    var footerView = new FooterView();
+  //  var footerView = new FooterView();
 
     Backbone.history.start();
   };

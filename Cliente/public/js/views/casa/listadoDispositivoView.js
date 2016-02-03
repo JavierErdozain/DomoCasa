@@ -8,7 +8,7 @@ define([
 
   var ListadoView = Backbone.View.extend({
     el: $("#page-wrapper"),
-    data={},
+    data: {},
 
     initialize:function(id) {
       var collect = new collectionsTipoDispositivos().toJSON();      
